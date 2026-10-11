@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6e2436">
+  <meta name="description" content="Join us to celebrate a beautiful beginning.">
+  <title>Our Wedding | A Celebration of Love</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+  <style>
+    :root {
+      --wine: #70263a;
+      --wine-dark: #431824;
+      --gold: #b78a45;
+      --cream: #fffaf2;
+      --ink: #35272a;
+      --muted: #796c6b;
+      --rose: #f5e8e5;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,250,242,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #eadbc8;
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: auto;
+      padding: 13px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-family: 'Great Vibes', cursive;
+      color: var(--wine);
+      font-size: 30px;
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a {
+      font-size: 11px;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .hero {
+      min-height: 790px;
+      padding: 90px 22px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(180deg, rgba(42,16,25,.34), rgba(42,16,25,.80)),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85')
+        center 48% / cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(231,198,139,.8);
+      pointer-events: none;
+    }
+
+    .hero-content { max-width: 780px; position: relative; }
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      font-size: clamp(64px, 10vw, 112px);
+      line-height: 1.08;
+      margin: 25px 0;
+    }
+
+    .hero .ampersand { color: #e4c48d; }
+    .hero p { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; }
+    .ornament { color: var(--gold); font-size: 27px; margin: 18px 0; }
+    .button {
+      display: inline-block;
+      padding: 14px 27px;
+      border: 1px solid var(--gold);
+      background: var(--wine);
+      color: white;
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      transition: .25s;
+      cursor: pointer;
+    }
+    .button:hover { background: var(--wine-dark); transform: translateY(-2px); }
+    .button-outline { background: transparent; border-color: var(--gold); }
+    .hero .button { margin-top: 22px; }
+
+    section { padding: 95px 22px; }
+    .section-inner { max-width: 1080px; margin: auto; }
+    .center { text-align: center; }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--wine);
+      font-size: clamp(40px, 6vw, 62px);
+      line-height: 1.12;
+      font-weight: 500;
+      margin: 12px 0 20px;
+    }
+    .intro { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 14px; }
+    .divider { width: 65px; height: 1px; background: var(--gold); margin: 25px auto; }
+
+    .invitation { background: #fffdf8; }
+    .invitation-card {
+      max-width: 740px;
+      margin: 42px auto 0;
+      padding: 55px 30px;
+      border: 1px solid #e8d6bb;
+      outline: 1px solid #e8d6bb;
+      outline-offset: 7px;
+      text-align: center;
+    }
+    .invitation-card p { color: var(--muted); font-size: 14px; }
+    .invitation-card .family { color: var(--wine); font-size: 17px; }
+
+    .countdown-section { background: var(--wine-dark); color: white; }
+    .countdown-section h2 { color: white; }
+    .countdown-section .intro { color: #e5d7d7; }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 35px;
+    }
+    .time-box {
+      width: 112px;
+      padding: 18px 8px;
+      border: 1px solid rgba(213,177,113,.55);
+    }
+    .time-box strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      color: #e4c48d;
+      font-size: 43px;
+      font-weight: 500;
+    }
+    .time-box span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+
+    .events { background: #f7eee5; }
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 45px;
+    }
+    .event-card {
+      padding: 34px 22px;
+      background: #fffaf2;
+      border: 1px solid #eadbc8;
+      text-align: center;
+      transition: transform .25s;
+    }
+    .event-card:hover { transform: translateY(-5px); }
+    .event-icon { font-size: 30px; }
+    .event-card h3 {
+      font: 500 32px 'Cormorant Garamond', serif;
+      color: var(--wine);
+      margin: 14px 0 7px;
+    }
+    .event-card p { font-size: 13px; color: var(--muted); margin: 6px 0; }
+    .event-date { color: var(--gold) !important; font-weight: 600; }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin-top: 38px;
+    }
+    .story-image {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+    }
+    .story-copy p { font-size: 14px; color: var(--muted); }
+
+    .gallery { background: #fffdf8; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+      margin-top: 40px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform .35s, filter .35s;
+    }
+    .gallery-grid img:hover { transform: scale(1.025); filter: saturate(1.1); }
+
+    .venue { background: #f7eee5; }
+    .venue-box {
+      max-width: 800px;
+      margin: 40px auto 0;
+      background: var(--cream);
+      border: 1px solid #eadbc8;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .venue-box h3 {
+      font: 500 34px 'Cormorant Garamond', serif;
+      color: var(--wine);
+    }
+    .venue-box p { color: var(--muted); font-size: 14px; }
+
+    .rsvp { background: var(--wine); color: white; }
+    .rsvp h2 { color: white; }
+    .rsvp .intro { color: #f0dfdf; }
+    .rsvp .button { margin-top: 22px; background: #fffaf2; color: var(--wine); }
+
+    footer {
+      background: var(--wine-dark);
+      color: #e7d9d4;
+      padding: 38px 20px;
+      text-align: center;
+    }
+    footer .brand { font-size: 38px; color: #e4c48d; }
+    footer p { font-size: 11px; letter-spacing: 1px; }
+
+    @media (max-width: 760px) {
+      .nav-inner { padding: 12px 16px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 9px; letter-spacing: .5px; }
+      .brand { font-size: 25px; }
+      .hero { min-height: 680px; }
+      section { padding: 70px 19px; }
+      .event-grid { grid-template-columns: 1fr; }
+      .story-grid { grid-template-columns: 1fr; gap: 25px; }
+      .story-image { height: 370px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 9px; }
+      .gallery-grid img { height: 220px; }
+      .time-box { width: 90px; }
+      .time-box strong { font-size: 34px; }
+      .invitation-card { padding: 40px 18px; }
+    }
+
+    @media (max-width: 390px) {
+      .nav-links { gap: 8px; }
+      .nav-links a { font-size: 8px; }
+      .brand { font-size: 22px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home">Our Wedding</a>
+      <div class="nav-links">
+        <a href="#story">Story</a>
+        <a href="#events">Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#rsvp">RSVP</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <div class="eyebrow">Together with our families</div>
+      <div class="ornament">✦ ❧ ✦</div>
+      <p>Joyfully invite you to celebrate</p>
+      <h1>Priya <span class="ampersand">&amp;</span><br>Rahul</h1>
+      <div class="ornament">— ❦ —</div>
+      <p>Sunday · 15 November 2026</p>
+      <a href="#invitation" class="button">Discover our invitation</a>
+    </div>
+  </header>
+
+  <section class="invitation" id="invitation">
+    <div class="section-inner center">
+      <div class="section-label">A beautiful beginning</div>
+      <h2>With love &amp; blessings</h2>
+      <div class="divider"></div>
+      <div class="invitation-card">
+        <div class="ornament">❦</div>
+        <p>Together with our beloved families,</p>
+        <p class="family serif">Priya Sharma &amp; Rahul Reddy</p>
+        <p>request the pleasure of your company as we begin our forever.</p>
+        <h2>15 · 11 · 2026</h2>
+        <p>Sunday · 10:30 AM onwards</p>
+        <p>Royal Palace Convention Centre<br>Hyderabad, Telangana</p>
+        <div class="ornament">✧</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="countdown-section center">
+    <div class="section-inner">
+      <div class="section-label">Counting every moment</div>
+      <h2>Until our forever begins</h2>
+      <p class="intro">One beautiful day. A lifetime of memories.</p>
+      <div class="countdown" aria-live="polite">
+        <div class="time-box"><strong id="days">--</strong><span>Days</span></div>
+        <div class="time-box"><strong id="hours">--</strong><span>Hours</span></div>
+        <div class="time-box"><strong id="minutes">--</strong><span>Minutes</span></div>
+        <div class="time-box"><strong id="seconds">--</strong><span>Seconds</span></div>
+      </div>
+      <p id="countdown-message" class="intro" style="margin-top:22px"></p>
+    </div>
+  </section>
+
+  <section class="events" id="events">
+    <div class="section-inner center">
+      <div class="section-label">Save the dates</div>
+      <h2>Wedding celebrations</h2>
+      <p class="intro">Every celebration is more beautiful with you by our side.</p>
+      <div class="event-grid">
+        <article class="event-card">
+          <div class="event-icon">❋</div>
+          <h3>Mehendi</h3>
+          <p class="event-date">13 November 2026 · 5:00 PM</p>
+          <p>Flowers, music and beautiful traditions.</p>
+        </article>
+        <article class="event-card">
+          <div class="event-icon">❦</div>
+          <h3>Wedding</h3>
+          <p class="event-date">15 November 2026 · 10:30 AM</p>
+          <p>The sacred beginning of our forever.</p>
+        </article>
+        <article class="event-card">
+          <div class="event-icon">✧</div>
+          <h3>Reception</h3>
+          <p class="event-date">15 November 2026 · 7:00 PM</p>
+          <p>An evening of joy, dinner and dancing.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="story">
+    <div class="section-inner">
+      <div class="story-grid">
+        <img class="story-image"
+             src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1000&q=85"
+             alt="A couple celebrating their love">
+        <div class="story-copy">
+          <div class="section-label">Two hearts, one journey</div>
+          <h2 class="serif">Our story</h2>
+          <div class="divider" style="margin-left:0"></div>
+          <p>Some stories are written in the stars. Ours began with a simple hello and grew into a love we want to celebrate with everyone who matters to us.</p>
+          <p>Now, surrounded by the blessings of our families and the love of our friends, we're ready to begin our next chapter together.</p>
+          <p>We cannot wait to celebrate this special day with you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="section-inner center">
+      <div class="section-label">Moments we treasure</div>
+      <h2>A little glimpse of love</h2>
+      <p class="intro">A few frames from our journey. More memories await.</p>
+      <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Wedding celebration">
+        <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=700&q=80" alt="Couple portrait">
+        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=700&q=80" alt="Wedding flowers">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Wedding details">
+        <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=700&q=80" alt="Celebration together">
+        <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=700&q=80" alt="Romantic wedding moment">
+      </div>
+    </div>
+  </section>
+
+  <section class="venue" id="venue">
+    <div class="section-inner center">
+      <div class="section-label">We saved you a place</div>
+      <h2>Join us in celebration</h2>
+      <p class="intro">Your presence will make our day unforgettable.</p>
+      <div class="venue-box">
+        <div class="ornament">⌖</div>
+        <h3>Royal Palace Convention Centre</h3>
+        <p>Hyderabad, Telangana, India</p>
+        <p>15 November 2026 · 10:30 AM onwards</p>
+        <a class="button" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=Royal+Palace+Convention+Centre+Hyderabad">
+          Get directions
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp center" id="rsvp">
+    <div class="section-inner">
+      <div class="section-label">We hope you can join us</div>
+      <h2>Will you be there?</h2>
+      <p class="intro">Kindly let us know. We look forward to celebrating with you.</p>
+      <a class="button" id="rsvp-button" target="_blank" rel="noopener"
+         href="https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20RSVP%20for%20your%20wedding.">
+        Confirm via WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <a class="brand" href="#home">Priya &amp; Rahul</a>
+    <p>MADE WITH LOVE · 15 NOVEMBER 2026</p>
+    <p>We can't wait to celebrate with you ♡</p>
+  </footer>
+
+  <script>
+    // Change this to your actual wedding date and time.
+    // The example uses Hyderabad local time (IST, UTC+05:30).
+    const weddingDate = new Date('2026-11-15T10:30:00+05:30').getTime();
+
+    function updateCountdown() {
+      const remaining = weddingDate - Date.now();
+      const message = document.getElementById('countdown-message');
+
+      if (remaining <= 0) {
+        ['days', 'hours', 'minutes', 'seconds'].forEach(id => {
+          document.getElementById(id).textContent = '00';
+        });
+        message.textContent = 'Today is the day! Let the celebrations begin!';
+        return;
+      }
+
+      const units = {
+        days: Math.floor(remaining / 86400000),
+        hours: Math.floor((remaining % 86400000) / 3600000),
+        minutes: Math.floor((remaining % 3600000) / 60000),
+        seconds: Math.floor((remaining % 60000) / 1000)
+      };
+
+      Object.entries(units).forEach(([id, value]) => {
+        document.getElementById(id).textContent =
+          String(value).padStart(2, '0');
+      });
+
+      message.textContent = 'Every second brings us closer to forever.';
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
